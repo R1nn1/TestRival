@@ -1,6 +1,4 @@
-return function(GunLeftGroupBox)
-print("GunLeftGroupBox gotten W", GunLeftGroupBox)
-
+local GunLeftGroupBox = getgenv().GunLeftGroupBox
 local function ShootRecoil(info, value)
     info.ShootRecoil = value
 end
