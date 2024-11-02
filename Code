@@ -1,0 +1,119 @@
+local function ShootRecoil(info, value)
+    info.ShootRecoil = value
+end
+
+local function ShootSpread(info, value)
+    info.ShootSpread = value
+end
+
+local function ProjectileSpeed(info, value)
+    info.ProjectileSpeed = value
+end
+
+local function ShootCooldown(info, value)
+    info.ShootCooldown = value
+end
+
+local function QuickShotCooldown(info, value)
+    info.QuickShotCooldown = value
+end
+
+GunLeftGroupBox:AddInput('ShootRecoilInput', {
+    Numeric = true,
+    Finished = true,
+    Text = 'Gun Recoil',
+    Tooltip = 'Changes Your Gun Recoil',
+    Placeholder = 'Put This As A Low Number',
+    Callback = function(Value)
+        local cim = require(game:GetService("Players").LocalPlayer.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.ClientItem)
+        local inputFunc = cim.Input
+        local old
+        old = hookfunction(inputFunc, function(...)
+            local args = {...}
+            if type(args[1]) == "table" then
+                ShootRecoil(args[1].Info, tonumber(Value))
+            end
+            return old(...)
+        end)
+    end
+})
+
+GunLeftGroupBox:AddInput('ShootSpreadInput', {
+    Numeric = true,
+    Finished = true,
+    Text = 'Gun Spread',
+    Tooltip = 'Changes Your Gun Spread',
+    Placeholder = 'Set this as a low number',
+    Callback = function(Value)
+        local cim = require(game:GetService("Players").LocalPlayer.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.ClientItem)
+        local inputFunc = cim.Input
+        local old
+        old = hookfunction(inputFunc, function(...)
+            local args = {...}
+            if type(args[1]) == "table" then
+                ShootSpread(args[1].Info, tonumber(Value))
+            end
+            return old(...)
+        end)
+    end
+})
+
+GunLeftGroupBox:AddInput('ProjectileSpeedInput', {
+    Numeric = true,
+    Finished = true,
+    Text = 'Bullet Spped',
+    Tooltip = 'Changes The Speed Of Your Bullets',
+    Placeholder = 'Set This As A High Number',
+    Callback = function(Value)
+        local cim = require(game:GetService("Players").LocalPlayer.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.ClientItem)
+        local inputFunc = cim.Input
+        local old
+        old = hookfunction(inputFunc, function(...)
+            local args = {...}
+            if type(args[1]) == "table" then
+                ProjectileSpeed(args[1].Info, tonumber(Value))
+            end
+            return old(...)
+        end)
+    end
+})
+
+GunLeftGroupBox:AddInput('ShootCooldownInput', {
+    Numeric = true,
+    Finished = true,
+    Text = 'Shoot Cooldown',
+    Tooltip = 'Changes Your Shoot Cooldown',
+    Placeholder = 'Set this as a Low Number',
+    Callback = function(Value)
+        local cim = require(game:GetService("Players").LocalPlayer.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.ClientItem)
+        local inputFunc = cim.Input
+        local old
+        old = hookfunction(inputFunc, function(...)
+            local args = {...}
+            if type(args[1]) == "table" then
+                ShootCooldown(args[1].Info, tonumber(Value))
+            end
+            return old(...)
+        end)
+    end
+})
+
+GunLeftGroupBox:AddInput('QuickShotCooldownInput', {
+    Numeric = true,
+    Finished = true,
+    Text = 'Quick Shot Cooldown',
+    Tooltip = 'Changes Your Quick Shot Cooldown',
+    Placeholder = 'Set This As A Low Number',
+    Callback = function(Value)
+        local cim = require(game:GetService("Players").LocalPlayer.PlayerScripts.Modules.ClientReplicatedClasses.ClientFighter.ClientItem)
+        local inputFunc = cim.Input
+        local old
+        old = hookfunction(inputFunc, function(...)
+            local args = {...}
+            if type(args[1]) == "table" then
+                QuickShotCooldown(args[1].Info, tonumber(Value))
+            end
+            return old(...)
+        end)
+    end
+})
