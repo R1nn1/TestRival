@@ -1,4 +1,6 @@
 return function(GunLeftGroupBox)
+print("GunLeftGroupBox gotten W", GunLeftGroupBox)
+
 local function ShootRecoil(info, value)
     info.ShootRecoil = value
 end
